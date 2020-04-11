@@ -156,19 +156,20 @@ function showdata()
 
 function showinput()
 {
+  var j = i-1;
   var front = ''
-  for (let n=0; n<i; n++)
+  for (let n=0; n<j; n++)
   {
     front += input.charAt(n);
     console.log(front);
   }
   var after = ''
-  for (let n=i+1; n < input.length; n++)
+  for (let n=j+1; n < input.length; n++)
   {
     after += input.charAt(n);
     console.log(after);
   }
-  document.getElementById("tag5").innerHTML = front + '<span style= \'color: red\'>' + input.charAt(i) + '</span>' + after;
+  document.getElementById("tag5").innerHTML = front + '<span style= \'color: red\'>' + input.charAt(j) + '</span>' + after;
 }
 
 function end()
@@ -180,7 +181,7 @@ function end()
   var result = document.getElementById("result");
   if (accept === 0)
   {
-    result.innerHTML = "NOT ACCEPTED"
+    result.innerHTML = "REJECTED"
   }
   else if (accept === 1)
   {
@@ -194,6 +195,7 @@ function delend()
   next.innerHTML = "COMPUTE";
   next.setAttribute('onclick',"compute()");
   next.style.backgroundColor = '#97d4d7';
+  document.getElementById("result").innerHTML="";
   delsecondten();
 }
 
