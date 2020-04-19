@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded',init);
 var input = '';
 var order = '';
 var price = 0;
+var water = 0;
 var imgorder = '';
 var i = 0;
 var accept = 0;
+var mode = 0;
 
 function init()
 {
@@ -17,6 +19,14 @@ function init()
   document.getElementById("cancel1").disabled = false;
   document.getElementById("baht").disabled = false;
   document.getElementById("next").disabled = false;
+  document.getElementById("testingmode").disabled = false;
+  
+  //default in vending mode
+  mode = 0;
+  document.getElementById("inputtest").style.display = "none";
+  document.getElementById("testingmode").style.backgroundColor = "white";
+  document.getElementById("vendingmode").style.backgroundColor = "#97d4d7";
+
   showdata();
 }
 
@@ -25,12 +35,12 @@ function gotoSugar(drink) {
   if (drink === '0')
   {
     order += 'Milk Tea';
-    imgorder = 'image/mb1.png'
+    water = 1;
   }
   else if (drink === '1')
   {
     order += 'Green Tea';
-    imgorder = 'image/mb2.png'
+    water = 2;
   }
 
   document.getElementById("MilkTea").disabled = true;
@@ -76,11 +86,27 @@ function gotoPayment(bubble) {
   {
     order += ' Add bubble';
     price = 30;
+    if (water === 1)
+    {
+      imgorder = 'image/mb1.png'
+    }
+    else
+    {
+      imgorder = 'image/mb2.png'
+    }
   }
   else if(bubble === '1')
   {
     order += ' Not Add bubble';
     price = 20;
+    if (water === 1)
+    {
+      imgorder = 'image/mt1.png'
+    }
+    else
+    {
+      imgorder = 'image/mt2.png'
+    }
   }
   document.getElementById("Add").disabled = true;
   document.getElementById("NotAdd").disabled = true;
@@ -103,10 +129,31 @@ function cancel(r) {
   imgorder = '';
   i = 0;
   accept = 0;
+  water = 0;
 
+  document.getElementById('imageorder').setAttribute('src','image/emptycub.png');
   document.getElementById("order").innerHTML = '';
+  document.getElementById("priceElement").innerHTML = price;
+  document.getElementById("currentPriceElement").innerHTML = price;
   init();
 }
+
+function cancel2() {
+  input = '';
+  order = '';
+  price = 0;
+  imgorder = '';
+  i = 0;
+  accept = 0;
+  water = 0;
+
+  document.getElementById('imageorder').setAttribute('src','image/emptycub.png');
+  document.getElementById("order").innerHTML = '';
+  document.getElementById("priceElement").innerHTML = price;
+  document.getElementById("currentPriceElement").innerHTML = price;
+  showdata();
+}
+
 
 function pay(c)
 {
@@ -174,9 +221,22 @@ function showinput()
 
 function end()
 {
+  document.getElementById("next").setAttribute("onclick",'end2()');
+}
+
+function end2()
+{
+  showdata();
   var next = document.getElementById("next");
   next.innerHTML = "RESET";
-  next.setAttribute('onclick',"delend(); cancel()");
+  if (mode === 0)
+  {
+    next.setAttribute('onclick',"delend(); cancel()");
+  }
+  else
+  {
+    next.setAttribute('onclick',"delend(); cancel2(); testingMode()");
+  }
   next.style.backgroundColor = 'red';
   var result = document.getElementById("result");
   if (accept === 0)
@@ -196,6 +256,15 @@ function delend()
   next.setAttribute('onclick',"compute()");
   next.style.backgroundColor = '#97d4d7';
   document.getElementById("result").innerHTML="";
+  delinitial();
+  delmilktea();
+  delgreentea();
+  delsugar50();
+  delsugar100();
+  deladd();
+  delnotadd();
+  deltenaddbubble();
+  delfirstten();
   delsecondten();
 }
 
@@ -541,4 +610,43 @@ function secondten()
 
 function delsecondten(){
   document.querySelector("#final").style.border = '17px gray double';
+}
+
+function testingMode() {
+  mode = 1;
+  $(':input').prop('disabled',true);
+  var x = document.getElementById("inputtest");
+  document.getElementById("vendingmode").style.backgroundColor = "white";
+  document.getElementById("testingmode").style.backgroundColor = "#97d4d7";
+  x.style.display = "grid";
+  document.getElementById("vendingmode").disabled = false;
+  document.getElementById("btn1").disabled = false;
+  document.getElementById("btn0").disabled = false;
+  document.getElementById("btnc").disabled = false;
+  document.getElementById("btnr").disabled = false;
+  document.getElementById("next").disabled = false;
+}
+
+function input1()
+{
+  input += '1';
+  showdata();
+}
+
+function input0()
+{
+  input += '0';
+  showdata();
+}
+
+function inputc()
+{
+  input += 'c';
+  showdata();
+}
+
+function inputr()
+{
+  input += 'r';
+  showdata();
 }
