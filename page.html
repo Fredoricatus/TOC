@@ -16,27 +16,27 @@
 
 
   <div class="tag1">
-    <h2>STEP 1 : Choose Your Drink</h2>
+    <h2>Select Room</h2>
   </div>
   <div class="grid-container">
     <img class="img1" src="image/mt1.png">
     <img class="img1" src="image/mt2.png">
-    <input onclick="gotoSugar('0')" type="button" class="button" id="MilkTea" value="Milk Tea" name="drink">
-    <input onclick="gotoSugar('1')" type="button" class="button" id="GreenTea" value="Green Tea" name="drink">
-    <input onclick="cancel('r')" type="button" class="cancel canbutton canbutton1" id="cancel1" value="Cancel">
+    <input onclick="gotoSugar('0')" type="button" class="button" id="MilkTea" value="Living Room" name="drink">
+    <input onclick="gotoSugar('1')" type="button" class="button" id="GreenTea" value="Bedroom" name="drink">
+    <input onclick="cancel()" type="button" class="cancel canbutton canbutton1" id="cancel1" value="Cancel">
   </div>
 
 
   <div class="pink" id="sugar">
     <div class="tag2">
-      <h2>STEP 2 : % Of Sugar</h2>
+      <h2>Control</h2>
     </div>
     <div class="grid-container sugar">
       <img class="img2" src="image/sg2.png">
       <img class="img2" src="image/sg1.png">
-      <input onclick="gotoBubble('0')" type="button" class="button2" id="100" value="100%">
-      <input onclick="gotoBubble('1')" type="button" class="button2" id="50" value="50%">
-      <input onclick="cancel('r')" type="button" class="cancel canbutton canbutton1" id="cancel2" value="Cancel">
+      <input onclick="gotoBubble('0')" type="button" class="button2" id="100" value="Humidity Control">
+      <input onclick="gotoBubble('1')" type="button" class="button2" id="50" value="Ventilation Control">
+      <input onclick="cancel()" type="button" class="cancel canbutton canbutton1" id="cancel2" value="Cancel">
       <!-- <button class="cancle canbutton canbutton1">Cancle</button> -->
 
 
@@ -45,7 +45,7 @@
 
   <div class="blank" id="bubble">
     <div class="tag1">
-      <h2>STEP 3 : Add Bubble</h2>
+      <h2>Select Function</h2>
     </div>
     <div class="grid-container">
       <img class="img1" src="image/bb1.png">
@@ -53,17 +53,18 @@
       <input onclick="gotoPayment('0')" type="button" class="button" id="Add" value="Add">
       <input onclick="gotoPayment('1')" type="button" class="button" id="NotAdd" value="Not Add">
 
-      <input onclick="cancel('r')" type="button" class="cancel canbutton canbutton1" id="cancel3" value="Cancel">
+      <input onclick="neworder('r')" type="button" class="cancel canbutton canbutton1" id="cancel3" value="Cancel">
       <!-- <button class="cancle canbutton canbutton1">Cancle</button> -->
     </div>
   </div>
 
+    <!--
   <div class="pink" id= "payment">
     <div class="tag2" >
       <h2>Payment</h2>
     </div>
     <div class="grid-container2">
-      <!-- <img class="img2" src="image/bt2.png"> -->
+      <!-- <img class="img2" src="image/bt2.png"> --
       <img class="img2" src="image/bt1.png">
       <div class="pay">
         <h3> ราคา : <span id="priceElement">0</span> Baht</h3>
@@ -76,14 +77,15 @@
       <input onclick="neworder()" type="button" class="cancel canbutton canbutton1" id="cancel4" value="Cancel">
     </div>
   </div>
+    -->
 
   <div class="blank">
     <div class="tag1">
       <h2 id="orderSuccess">Order Success</h2>
     </div>
     <div class="grid-container-or">
-      <h2 id="order"></h2>
-      <img class="img1" src="image/emptycub.png" id="imageorder">
+        <h2 id="order"></h2>
+        <img class="img1" src="image/emptycub.png" id="imageorder">
 
     </div>
   </div>
@@ -219,11 +221,10 @@
       <h2>สมาชิกกลุ่ม</h2>
     </div>
     <div class="grid-container-name">
-      <h3>60010549 นางสาวเนตรชนก ปิยะพันธุ์ </h3>
-      <h3>60010574 นางสาวปภาวรินท์ เทียนสิงห์ชัย </h3>
-      <h3>60010595 นางสาวปวรลักษณ์ อินทร์แสง </h3>
-      <h3>60010603 นางสาวปัสกา ชูทอง </h3>
-      <h3>60010981 นางสาวศิริวรรณ พัฒสังวาล </h3>
+      <h3>60010xxx ผม </h3>
+      <h3>60010xxx คุณ </h3>
+      <h3>60010xxx ตู่ </h3>
+      <h3>60010xxx ป้อม </h3>
     </div>
   </div>
 
