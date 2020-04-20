@@ -13,7 +13,7 @@ function init()
 {
   var top = document.getElementById("header").offsetTop;
   window.scrollTo(top, 0);
-    //$(':input').prop('disabled', true);
+  $(':input').prop('disabled',true);
   document.getElementById("MilkTea").disabled = false;
   document.getElementById("GreenTea").disabled = false;
   document.getElementById("cancel1").disabled = false;
@@ -25,12 +25,7 @@ function init()
   mode = 0;
   document.getElementById("inputtest").style.display = "none";
   document.getElementById("testingmode").style.backgroundColor = "white";
-    document.getElementById("vendingmode").style.backgroundColor = "#97d4d7";
-
-    document.getElementById('imageorder').setAttribute('src', 'image/emptycub.png');
-    document.getElementById("order").innerHTML = '';
-  /*document.getElementById("priceElement").innerHTML = price;
-document.getElementById("currentPriceElement").innerHTML = price;*/
+  document.getElementById("vendingmode").style.backgroundColor = "#97d4d7";
 
   showdata();
 }
@@ -66,15 +61,11 @@ function gotoBubble(sugar) {
   input += sugar;
   if (sugar === '0')
   {
-      order += ' 100%';
-      document.getElementById('Add').setAttribute("value", 'Start Water Atomizer');
-      document.getElementById('NotAdd').setAttribute("value", 'Start Dehumidifier');
+    order += ' 100%';
   }
   else if (sugar === '1')
   {
-      order += ' 50%';
-      document.getElementById('Add').setAttribute("value", 'Hold Static Air');
-      document.getElementById('NotAdd').setAttribute("value", 'Cycle Air');
+    order += ' 50%';
   }
   document.getElementById("100").disabled = true;
   document.getElementById("50").disabled = true;
@@ -90,7 +81,6 @@ function gotoBubble(sugar) {
 }
 
 function gotoPayment(bubble) {
-    orderSuccess();
   input += bubble;
   if (bubble === '0')
   {
@@ -119,20 +109,20 @@ function gotoPayment(bubble) {
     }
   }
   document.getElementById("Add").disabled = true;
-    document.getElementById("NotAdd").disabled = true;
+  document.getElementById("NotAdd").disabled = true;
+  document.getElementById("cancel3").disabled = true;
 
-  document.getElementById("cancel3").disabled = false;
+  document.getElementById("cancel4").disabled = false;
 
-  //document.getElementById("cancel4").disabled = false;
-    
-  //document.getElementById("priceElement").innerHTML = price;
-  //document.getElementById("currentPriceElement").innerHTML = price;
-
-    //var top = document.getElementById('orderSuccess').offsetTop;
+  document.getElementById("priceElement").innerHTML = price;
+  document.getElementById("currentPriceElement").innerHTML = price;
+  
+  var top = document.getElementById('payment').offsetTop;
+  window.scrollTo(0, top);
   showdata();
 }
 
-function cancel() {
+function cancel(r) {
   input = '';
   order = '';
   price = 0;
@@ -141,12 +131,11 @@ function cancel() {
   accept = 0;
   water = 0;
 
-    
-  /*document.getElementById('imageorder').setAttribute('src','image/emptycub.png');
+  document.getElementById('imageorder').setAttribute('src','image/emptycub.png');
   document.getElementById("order").innerHTML = '';
-  /*document.getElementById("priceElement").innerHTML = price;
-  document.getElementById("currentPriceElement").innerHTML = price;*/
-    init();
+  document.getElementById("priceElement").innerHTML = price;
+  document.getElementById("currentPriceElement").innerHTML = price;
+  init();
 }
 
 function cancel2() {
@@ -160,8 +149,8 @@ function cancel2() {
 
   document.getElementById('imageorder').setAttribute('src','image/emptycub.png');
   document.getElementById("order").innerHTML = '';
-  /*document.getElementById("priceElement").innerHTML = price;
-  document.getElementById("currentPriceElement").innerHTML = price;*/
+  document.getElementById("priceElement").innerHTML = price;
+  document.getElementById("currentPriceElement").innerHTML = price;
   showdata();
 }
 
@@ -176,7 +165,7 @@ function pay(c)
     document.getElementById("currentPriceElement").innerHTML = price;
     if (price === 0)
     {
-        orderSuccess();
+      orderSuccess();
     }
   }
 }
@@ -185,15 +174,15 @@ function orderSuccess()
 {
   showdata();
   document.getElementById('imageorder').setAttribute("src",imgorder);
-  document.getElementById('cancel3').setAttribute("value",'New Order');
+  document.getElementById('cancel4').setAttribute("value",'New Order');
   document.getElementById("order").innerHTML = order;
-    var top = document.getElementById('orderSuccess').offsetTop;
-  window.scrollTo(0, top-250);
+  var top = document.getElementById('cancel4').offsetTop;
+  window.scrollTo(0, top);
 }
 
 function neworder()
 {
-  document.getElementById('cancel3').setAttribute("value",'Cancel');
+  document.getElementById('cancel4').setAttribute("value",'Cancel');
   cancel('r');
 }
 
